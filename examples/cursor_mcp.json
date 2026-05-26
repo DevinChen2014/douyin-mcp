@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "socialdatax-douyin": {
+      "url": "https://mcp.52choujiang.com/douyin/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:SOCIALDATAX_API_KEY}"
+      }
+    }
+  }
+}

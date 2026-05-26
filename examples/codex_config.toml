@@ -1,0 +1,4 @@
+[mcp_servers.socialdatax-douyin]
+enabled = true
+url = "https://mcp.52choujiang.com/douyin/mcp"
+bearer_token_env_var = "SOCIALDATAX_API_KEY"

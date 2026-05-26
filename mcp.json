@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "socialdatax-douyin": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.52choujiang.com/douyin/mcp",
+        "--header",
+        "Authorization: Bearer <SOCIALDATAX_API_KEY>"
+      ]
+    }
+  }
+}

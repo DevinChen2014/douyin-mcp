@@ -1,0 +1,89 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.52choujiang/douyin-insights",
+  "title": "SocialDataX 抖音 Douyin MCP",
+  "description": "Read-only Douyin MCP for hot search, work search/details, comments/replies, creator profiles, creator works, and creator series.",
+  "version": "0.2.2",
+  "website": "https://socialdatax.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.52choujiang.com/douyin/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer API key from SocialDataX / 社媒数据助手",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "douyin_get_hot_search_list",
+      "description": "Get the current Douyin / 抖音 main hot search list."
+    },
+    {
+      "name": "douyin_search_videos",
+      "description": "Search Douyin works by keyword with optional paging and filters."
+    },
+    {
+      "name": "douyin_get_video_detail_by_aweme_id",
+      "description": "Fetch structured work details when the caller already has an aweme_id."
+    },
+    {
+      "name": "douyin_get_video_detail_by_url",
+      "description": "Resolve a Douyin content page link, short link, or share text into structured work details."
+    },
+    {
+      "name": "douyin_get_video_comments_by_aweme_id",
+      "description": "Fetch paginated first-level comments when the caller already has an aweme_id."
+    },
+    {
+      "name": "douyin_get_video_comments_by_url",
+      "description": "Fetch paginated first-level comments directly from a Douyin content page link, short link, or share text."
+    },
+    {
+      "name": "douyin_get_video_comment_replies_by_comment_id",
+      "description": "Fetch paginated replies under a first-level comment by aweme_id and comment_id."
+    },
+    {
+      "name": "douyin_get_user_info_by_sec_user_id",
+      "description": "Fetch creator profile data when the caller already has a sec_user_id."
+    },
+    {
+      "name": "douyin_get_user_info_by_profile_url",
+      "description": "Resolve a Douyin profile link, short link, or share text into creator profile data."
+    },
+    {
+      "name": "douyin_get_user_posted_videos_by_sec_user_id",
+      "description": "Fetch a paginated list of works published by a creator when the caller already has a sec_user_id."
+    },
+    {
+      "name": "douyin_get_user_posted_videos_by_profile_url",
+      "description": "Fetch a paginated list of works published by a creator from a profile link, short link, or share text."
+    },
+    {
+      "name": "douyin_get_user_series_by_sec_user_id",
+      "description": "Fetch creator short-drama / series lists when the caller already has a sec_user_id."
+    },
+    {
+      "name": "douyin_get_user_series_by_profile_url",
+      "description": "Fetch creator short-drama / series lists from a profile link, short link, or share text."
+    }
+  ],
+  "tags": [
+    "douyin",
+    "douyin-mcp",
+    "douyin-data",
+    "short-video",
+    "mcp",
+    "mcp-server",
+    "socialdatax",
+    "social-insights",
+    "marketing-research",
+    "comment-analysis",
+    "creator-analytics"
+  ]
+}
