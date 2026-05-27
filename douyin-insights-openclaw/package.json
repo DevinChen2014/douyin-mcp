@@ -1,0 +1,124 @@
+{
+  "name": "douyin-insights-openclaw-plugin",
+  "version": "0.2.5",
+  "description": "SocialDataX / 社媒数据助手 为抖音 / Douyin 提供社媒研究支持：热榜、作品搜索、作品详情、评论回复、达人信息、达人作品和短剧/合集。",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "SocialDataX",
+    "url": "https://socialdatax.com"
+  },
+  "homepage": "https://socialdatax.com",
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "keywords": [
+    "openclaw-plugin",
+    "openclaw",
+    "mcp",
+    "douyin",
+    "抖音",
+    "social-insights",
+    "social-media-research",
+    "content-insights",
+    "image-posts",
+    "comments",
+    "creator-profiles",
+    "creator-series",
+    "work-research",
+    "creator-analytics",
+    "comment-analysis"
+  ],
+  "openclaw": {
+    "kind": "plugin",
+    "manifest": "openclaw.plugin.json",
+    "extensions": [
+      "./index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.0.0"
+    },
+    "build": {
+      "openclawVersion": "2026.5.9"
+    },
+    "runtimeRequirements": {
+      "bins": [
+        "node"
+      ],
+      "env": [
+        "SOCIALDATAX_API_KEY"
+      ],
+      "primaryEnv": "SOCIALDATAX_API_KEY",
+      "networkTargets": [
+        "https://mcp.52choujiang.com"
+      ]
+    },
+    "environment": {
+      "binaries": [
+        "node"
+      ],
+      "externalServices": [
+        {
+          "name": "mcp.52choujiang.com"
+        }
+      ]
+    },
+    "configUiHints": {
+      "connectionTimeoutMs": {
+        "label": "Connection timeout",
+        "help": "Timeout in milliseconds for hosted MCP requests.",
+        "advanced": true
+      }
+    }
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "node"
+    ],
+    "env": [
+      "SOCIALDATAX_API_KEY"
+    ],
+    "primaryEnv": "SOCIALDATAX_API_KEY",
+    "networkTargets": [
+      "https://mcp.52choujiang.com"
+    ]
+  },
+  "requires": {
+    "bins": [
+      "node"
+    ],
+    "env": [
+      "SOCIALDATAX_API_KEY"
+    ]
+  },
+  "primaryEnv": "SOCIALDATAX_API_KEY",
+  "networkTargets": [
+    "https://mcp.52choujiang.com"
+  ],
+  "metadata": {
+    "douyin-insights": {
+      "requires": {
+        "bins": [
+          "node"
+        ],
+        "env": [
+          "SOCIALDATAX_API_KEY"
+        ]
+      },
+      "primaryEnv": "SOCIALDATAX_API_KEY",
+      "networkTargets": [
+        "https://mcp.52choujiang.com"
+      ]
+    }
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "files": [
+    "openclaw.plugin.json",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "douyin-insights-openclaw-plugin",
+  "name": "社媒数据助手 抖音 MCP | Douyin MCP",
+  "description": "SocialDataX / 社媒数据助手 为抖音 / Douyin 提供社媒研究支持：热榜、作品搜索、作品详情、评论回复、达人信息、达人作品和短剧/合集。",
+  "version": "0.2.5",
+  "providers": ["douyin-insights"],
+  "providerAuthEnvVars": {
+    "douyin-insights": ["SOCIALDATAX_API_KEY"]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "douyin-insights",
+      "method": "api-key",
+      "choiceId": "socialdatax-api-key",
+      "choiceLabel": "SocialDataX API Key",
+      "choiceHint": "Used only to authorize requests to the hosted Douyin Insights MCP service.",
+      "groupId": "socialdatax",
+      "groupLabel": "SocialDataX / 社媒数据助手",
+      "optionKey": "socialDataxApiKey",
+      "cliFlag": "--socialdatax-api-key",
+      "cliOption": "--socialdatax-api-key <key>",
+      "cliDescription": "SOCIALDATAX_API_KEY used by the hosted MCP service.",
+      "onboardingScopes": ["social-media-research"],
+      "assistantPriority": 0
+    }
+  ],
+  "activation": {
+    "onStartup": false,
+    "onCapabilities": ["tool"]
+  },
+  "runtimeRequirements": {
+    "bins": ["node"],
+    "env": ["SOCIALDATAX_API_KEY"],
+    "primaryEnv": "SOCIALDATAX_API_KEY",
+    "networkTargets": ["https://mcp.52choujiang.com"]
+  },
+  "metadata": {
+    "douyin-insights": {
+      "requires": {
+        "bins": ["node"],
+        "env": ["SOCIALDATAX_API_KEY"]
+      },
+      "primaryEnv": "SOCIALDATAX_API_KEY",
+      "networkTargets": ["https://mcp.52choujiang.com"]
+    }
+  },
+  "requires": {
+    "bins": ["node"],
+    "env": ["SOCIALDATAX_API_KEY"]
+  },
+  "primaryEnv": "SOCIALDATAX_API_KEY",
+  "networkTargets": ["https://mcp.52choujiang.com"],
+  "environment": {
+    "binaries": ["node"],
+    "externalServices": [
+      {
+        "name": "mcp.52choujiang.com"
+      }
+    ]
+  },
+  "contracts": {
+    "tools": [
+      "douyin-insights__douyin_get_hot_search_list",
+      "douyin-insights__douyin_search_videos",
+      "douyin-insights__douyin_get_video_detail_by_aweme_id",
+      "douyin-insights__douyin_get_video_detail_by_url",
+      "douyin-insights__douyin_get_video_comments_by_aweme_id",
+      "douyin-insights__douyin_get_video_comments_by_url",
+      "douyin-insights__douyin_get_video_comment_replies_by_comment_id",
+      "douyin-insights__douyin_get_user_info_by_sec_user_id",
+      "douyin-insights__douyin_get_user_info_by_profile_url",
+      "douyin-insights__douyin_get_user_posted_videos_by_sec_user_id",
+      "douyin-insights__douyin_get_user_posted_videos_by_profile_url",
+      "douyin-insights__douyin_get_user_series_by_sec_user_id",
+      "douyin-insights__douyin_get_user_series_by_profile_url"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "connectionTimeoutMs": {
+        "type": "integer",
+        "default": 30000,
+        "minimum": 1000,
+        "maximum": 120000,
+        "description": "Timeout in milliseconds for remote MCP HTTP requests."
+      }
+    }
+  },
+  "configUiHints": {
+    "connectionTimeoutMs": {
+      "label": "Connection timeout",
+      "help": "Timeout in milliseconds for hosted MCP requests.",
+      "advanced": true
+    }
+  },
+  "uiHints": {
+    "connectionTimeoutMs": {
+      "label": "Connection timeout",
+      "help": "Timeout in milliseconds for hosted MCP requests.",
+      "advanced": true
+    }
+  }
+}
