@@ -2,7 +2,7 @@
   "id": "douyin-insights-openclaw-plugin",
   "name": "社媒数据助手 抖音 MCP | Douyin MCP",
   "description": "SocialDataX / 社媒数据助手 为抖音 / Douyin 提供社媒研究支持：热榜、作品搜索、作品详情、评论回复、达人信息、达人作品和短剧/合集。",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "providers": ["douyin-insights"],
   "providerAuthEnvVars": {
     "douyin-insights": ["SOCIALDATAX_API_KEY"]

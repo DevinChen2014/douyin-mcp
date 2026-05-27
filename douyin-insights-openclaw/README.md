@@ -9,7 +9,7 @@ The plugin registers namespaced OpenClaw tools and forwards each call to a remot
 - Product: `SocialDataX` / `社媒数据助手`
 - Website: <https://socialdatax.com>
 - Package name: `douyin-insights-openclaw-plugin`
-- Version: `0.2.5`
+- Version: `0.2.6`
 - Search terms: Douyin, 抖音, social media research, Douyin content insights, hot search, video and image/text works, creator analytics, comments, comment replies, creator profiles, creator short-drama series
 
 ## Capabilities
@@ -74,7 +74,7 @@ clawhub package publish <public-checkout>/douyin-insights-openclaw \
   --family code-plugin \
   --name douyin-insights-openclaw-plugin \
   --display-name "社媒数据助手 抖音 MCP | Douyin MCP" \
-  --version 0.2.5 \
+  --version 0.2.6 \
   --source-repo <public-owner/public-repo> \
   --source-commit <public-commit-sha> \
   --source-path douyin-insights-openclaw \

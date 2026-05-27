@@ -1,6 +1,6 @@
 const PLUGIN_ID = "douyin-insights-openclaw-plugin";
 const PLUGIN_NAME = "社媒数据助手 抖音 MCP | Douyin MCP";
-const PLUGIN_VERSION = "0.2.5";
+const PLUGIN_VERSION = "0.2.6";
 const DEFAULT_ENDPOINT_URL = "https://mcp.52choujiang.com/douyin/mcp";
 const DEFAULT_API_KEY_ENV = "SOCIALDATAX_API_KEY";
 const LEGACY_API_KEY_ENV = "SOCIAL_MEDIA_MCP_API_KEY";
