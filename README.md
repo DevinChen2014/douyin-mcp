@@ -36,7 +36,7 @@ Common search phrases for this MCP service:
 - Website: <https://socialdatax.com>
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
-- Current public capability version: `0.2.2`
+- Current public capability version: `0.2.3`
 
 ## Platform MCP
 

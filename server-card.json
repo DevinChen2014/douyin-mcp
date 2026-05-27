@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.52choujiang/douyin-insights",
   "title": "SocialDataX 抖音 Douyin MCP",
-  "description": "Read-only Douyin MCP for hot search, work search/details, comments/replies, creator profiles, creator works, and creator series.",
-  "version": "0.2.2",
+  "description": "Read-only 抖音 / Douyin MCP for hot search, work search/details, comments/replies, creator profiles, creator works, and creator series.",
+  "version": "0.2.3",
   "website": "https://socialdatax.com",
   "remotes": [
     {

@@ -52,6 +52,7 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 - `examples/codex_config.toml` uses remote HTTP URL and `bearer_token_env_var`, not `mcp-remote`.
 - `examples/cursor_mcp.json` uses remote HTTP URL and `headers` with `${env:SOCIALDATAX_API_KEY}`, not `mcp-remote`.
 - `mcp.json` is explicitly command/stdio fallback and uses `mcp-remote`.
+- Before submitting to Smithery, verify `https://mcp.52choujiang.com/douyin/.well-known/mcp/server-card.json` returns the Douyin server card, not the root XHS server card.
 
 ## Directory Submission Order
 
