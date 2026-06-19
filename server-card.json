@@ -2,9 +2,9 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.52choujiang/douyin-insights",
   "title": "SocialDataX 抖音 Douyin MCP",
-  "description": "Read-only 抖音 / Douyin MCP for hot search, work search/details, comments/replies, creator profiles, creator works, and creator series.",
+  "description": "抖音 / Douyin MCP for hot search, work search/details, comments/replies, creator profiles, creator works, creator series, and speech-to-text transcript.",
   "version": "0.2.3",
-  "website": "https://socialdatax.com",
+  "website": "https://socialdatax.52choujiang.com",
   "remotes": [
     {
       "type": "streamable-http",
@@ -37,6 +37,18 @@
       "description": "Resolve a Douyin content page link, short link, or share text into structured work details."
     },
     {
+      "name": "douyin_submit_video_speech_text_by_video_url",
+      "description": "Submit a Douyin work video speech-to-text transcript task from a work page link, short link, or share text. 提交完成后最多短等 15 秒；if not finished, returns a job handle."
+    },
+    {
+      "name": "douyin_submit_video_speech_text_by_aweme_id",
+      "description": "Submit a Douyin work video speech-to-text transcript task from an aweme_id. 提交完成后最多短等 15 秒；if not finished, returns a job handle."
+    },
+    {
+      "name": "douyin_get_video_speech_text_job",
+      "description": "Check a Douyin video speech-to-text transcript job by job_id without starting a new task. This v1 surface returns transcript only, not summary."
+    },
+    {
       "name": "douyin_get_video_comments_by_aweme_id",
       "description": "Fetch paginated first-level comments when the caller already has an aweme_id."
     },
@@ -46,7 +58,7 @@
     },
     {
       "name": "douyin_get_video_comment_replies_by_comment_id",
-      "description": "Fetch paginated replies under a first-level comment by aweme_id and comment_id."
+      "description": "Fetch paginated replies under a first-level comment; pass both aweme_id and comment_id, and use page_token to continue pagination."
     },
     {
       "name": "douyin_get_user_info_by_sec_user_id",

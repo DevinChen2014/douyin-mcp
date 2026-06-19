@@ -1,6 +1,6 @@
 const PLUGIN_ID = "douyin-insights-openclaw-plugin";
 const PLUGIN_NAME = "社媒数据助手 抖音 MCP | Douyin MCP";
-const PLUGIN_VERSION = "0.2.6";
+const PLUGIN_VERSION = "0.2.7";
 const DEFAULT_ENDPOINT_URL = "https://mcp.52choujiang.com/douyin/mcp";
 const DEFAULT_API_KEY_ENV = "SOCIALDATAX_API_KEY";
 const LEGACY_API_KEY_ENV = "SOCIAL_MEDIA_MCP_API_KEY";
@@ -155,7 +155,7 @@ const TOOL_DEFINITIONS = [
     name: "douyin-insights__douyin_get_video_comment_replies_by_comment_id",
     remoteName: "douyin_get_video_comment_replies_by_comment_id",
     label: "Get Douyin Comment Replies By Comment ID",
-    description: "Fetch paginated replies under a first-level Douyin comment by aweme ID and comment ID.",
+    description: "Fetch paginated replies under a first-level Douyin comment; pass both aweme ID and comment ID, and use page_token to continue pagination.",
     parameters: {
       type: "object",
       additionalProperties: false,

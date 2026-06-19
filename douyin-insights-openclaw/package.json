@@ -1,15 +1,15 @@
 {
   "name": "douyin-insights-openclaw-plugin",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "SocialDataX / 社媒数据助手 为抖音 / Douyin 提供社媒研究支持：热榜、作品搜索、作品详情、评论回复、达人信息、达人作品和短剧/合集。",
   "main": "index.js",
   "type": "module",
   "license": "MIT",
   "author": {
     "name": "SocialDataX",
-    "url": "https://socialdatax.com"
+    "url": "https://socialdatax.52choujiang.com"
   },
-  "homepage": "https://socialdatax.com",
+  "homepage": "https://socialdatax.52choujiang.com",
   "engines": {
     "node": ">=20.18.1"
   },

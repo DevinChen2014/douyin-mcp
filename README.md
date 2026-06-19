@@ -8,7 +8,7 @@ If you are looking for a Douyin MCP or 抖音 MCP for social media research work
 - the hosted `streamable-http` endpoint for clients that support remote MCP
 - an `mcp-remote` fallback example for command/stdio-only MCP clients
 
-The business implementation is privately hosted. This repository exposes only the public connection surface for read-only social media intelligence workflows.
+The business implementation is privately hosted. This repository exposes only the public connection surface for social media content intelligence workflows.
 
 ## Search Aliases
 
@@ -33,7 +33,7 @@ Common search phrases for this MCP service:
 - Hosted transport: `streamable-http`
 - Authentication: `Authorization: Bearer <SOCIALDATAX_API_KEY>`
 - Product: `SocialDataX` / `社媒数据助手`
-- Website: <https://socialdatax.com>
+- Website: <https://socialdatax.52choujiang.com>
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
 - Current public capability version: `0.2.3`
@@ -42,9 +42,9 @@ Common search phrases for this MCP service:
 
 Use the hosted `streamable-http` endpoint directly from clients that support authenticated remote MCP. For clients that only support command/stdio MCP servers, use `mcp-remote` as a local compatibility proxy.
 
-## Read-Only Scope
+## Workflow Scope
 
-This MCP service is designed for read-only social media intelligence workflows. It does not provide account login, posting, editing, liking, commenting, or other account actions.
+This MCP service is designed for social media content intelligence workflows. It does not provide account login, posting, editing, liking, commenting, or other account actions.
 
 Supported workflows include:
 
@@ -53,10 +53,11 @@ Supported workflows include:
 - Resolve a Douyin content page link, short link, or share text into structured work details.
 - Read work details when the caller already has an `aweme_id`.
 - Fetch paginated first-level comments for comment analysis.
-- Fetch paginated replies under a first-level comment.
+- Fetch paginated replies under a first-level comment; pass both `aweme_id` and `comment_id`, and use `page_token` to continue pagination.
 - Read creator profile data from a profile link, short link, share text, or `sec_user_id`.
 - Fetch creator work lists from a profile link, short link, share text, or `sec_user_id`.
 - Fetch creator short-drama / series lists from a profile link, short link, share text, or `sec_user_id`.
+- Submit a work video speech-to-text transcript task; submit tools 提交完成后最多短等 15 秒, and unfinished jobs can be polled by `job_id`.
 
 ## Tools
 
@@ -68,13 +69,16 @@ Supported workflows include:
 | `douyin_get_video_detail_by_url` | Resolve a Douyin content page link, short link, or share text into structured work details. |
 | `douyin_get_video_comments_by_aweme_id` | Fetch paginated first-level comments when the caller already has an `aweme_id`. |
 | `douyin_get_video_comments_by_url` | Fetch paginated first-level comments directly from a Douyin content page link, short link, or share text. |
-| `douyin_get_video_comment_replies_by_comment_id` | Fetch paginated replies under a first-level comment by `aweme_id` and `comment_id`. |
+| `douyin_get_video_comment_replies_by_comment_id` | Fetch paginated replies under a first-level comment; pass both `aweme_id` and `comment_id`, and use `page_token` to continue pagination. |
 | `douyin_get_user_info_by_sec_user_id` | Fetch creator profile data when the caller already has a `sec_user_id`. |
 | `douyin_get_user_info_by_profile_url` | Resolve a Douyin profile link, short link, or share text into creator profile data. |
 | `douyin_get_user_posted_videos_by_sec_user_id` | Fetch a paginated list of works published by a creator when the caller already has a `sec_user_id`. |
 | `douyin_get_user_posted_videos_by_profile_url` | Fetch a paginated list of works published by a creator from a profile link, short link, or share text. |
 | `douyin_get_user_series_by_sec_user_id` | Fetch creator short-drama / series lists when the caller already has a `sec_user_id`. |
 | `douyin_get_user_series_by_profile_url` | Fetch creator short-drama / series lists from a profile link, short link, or share text. |
+| `douyin_submit_video_speech_text_by_video_url` | Submit a work video speech-to-text transcript task from a work page link, short link, or share text. 提交完成后最多短等 15 秒. |
+| `douyin_submit_video_speech_text_by_aweme_id` | Submit a work video speech-to-text transcript task from an `aweme_id`. 提交完成后最多短等 15 秒. |
+| `douyin_get_video_speech_text_job` | Check a work video speech-to-text transcript job by `job_id` without creating a new task. This v1 surface returns transcript only, not summary. |
 
 ## Quick Start
 
@@ -118,8 +122,10 @@ For command/stdio-only MCP clients, use `mcp-remote`:
 Claude Code can use remote HTTP directly:
 
 ```bash
-claude mcp add --transport http --header "Authorization: Bearer <SOCIALDATAX_API_KEY>" socialdatax-douyin https://mcp.52choujiang.com/douyin/mcp
+claude mcp add --transport http socialdatax-douyin https://mcp.52choujiang.com/douyin/mcp --header 'Authorization: Bearer ${SOCIALDATAX_API_KEY}'
 ```
+
+Persist `SOCIALDATAX_API_KEY` in the runtime environment or client Secret before restarting Claude Code.
 
 Claude Desktop should use its remote MCP / Connectors UI when available. If a local configuration file in your version only supports command/stdio servers, use the `mcp-remote` fallback.
 
@@ -137,7 +143,7 @@ Configuration examples are available in [examples](examples/):
 
 Request or manage API access from the product website:
 
-<https://socialdatax.com>
+<https://socialdatax.52choujiang.com>
 
 Use the key as a Bearer token in the `Authorization` request header. Do not commit real API keys to code, docs, issues, or screenshots.
 
