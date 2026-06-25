@@ -3,8 +3,8 @@
   "name": "com.52choujiang/douyin-insights",
   "title": "SocialDataX 抖音 Douyin MCP",
   "description": "抖音 / Douyin MCP for hot search, work search/details, comments/replies, creator profiles, creator works, creator series, and speech-to-text transcript.",
-  "version": "0.2.3",
-  "website": "https://socialdatax.52choujiang.com",
+  "version": "0.2.4",
+  "website": "https://socialdatax.com",
   "remotes": [
     {
       "type": "streamable-http",

@@ -33,10 +33,10 @@ Common search phrases for this MCP service:
 - Hosted transport: `streamable-http`
 - Authentication: `Authorization: Bearer <SOCIALDATAX_API_KEY>`
 - Product: `SocialDataX` / `社媒数据助手`
-- Website: <https://socialdatax.52choujiang.com>
+- Website: <https://socialdatax.com>
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
-- Current public capability version: `0.2.3`
+- Current public capability version: `0.2.4`
 
 ## Platform MCP
 
@@ -143,7 +143,7 @@ Configuration examples are available in [examples](examples/):
 
 Request or manage API access from the product website:
 
-<https://socialdatax.52choujiang.com>
+<https://socialdatax.com>
 
 Use the key as a Bearer token in the `Authorization` request header. Do not commit real API keys to code, docs, issues, or screenshots.
 

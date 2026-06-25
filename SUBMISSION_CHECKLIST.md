@@ -11,7 +11,7 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 - Suggested repository topics: `mcp`, `mcp-server`, `douyin`, `douyin-mcp`, `douyin-data`, `short-video`, `socialdatax`, `social-insights`, `marketing-research`, `comment-analysis`, `creator-analytics`
 - Root README title: `抖音 MCP | Douyin MCP`
 - Product: `SocialDataX` / `社媒数据助手`
-- Website: `https://socialdatax.52choujiang.com`
+- Website: `https://socialdatax.com`
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
 - Hosted MCP endpoint: `https://mcp.52choujiang.com/douyin/mcp`
@@ -48,7 +48,8 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 
 - Hosted streamable HTTP clients can connect directly to `https://mcp.52choujiang.com/douyin/mcp` with `Authorization: Bearer <SOCIALDATAX_API_KEY>`.
 - With a valid key, hosted MCP `initialize` succeeds.
-- With a valid key, hosted MCP `tools/list` returns the current 13 public tools.
+- With a valid key, hosted MCP `tools/list` returns the current 16 public tools.
+- `douyin_submit_video_speech_text_by_video_url`, `douyin_submit_video_speech_text_by_aweme_id`, and `douyin_get_video_speech_text_job` are present in `tools/list`; if any are missing, deploy the latest service before publishing.
 - `examples/codex_config.toml` uses remote HTTP URL and `bearer_token_env_var`, not `mcp-remote`.
 - `examples/cursor_mcp.json` uses remote HTTP URL and `headers` with `${env:SOCIALDATAX_API_KEY}`, not `mcp-remote`.
 - `mcp.json` is explicitly command/stdio fallback and uses `mcp-remote`.
