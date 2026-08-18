@@ -14,15 +14,15 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 - Website: `https://socialdatax.com`
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
-- Hosted MCP endpoint: `https://mcp.52choujiang.com/douyin/mcp`
+- Hosted MCP endpoint: `https://mcp.socialdatax.com/douyin/mcp`
 - Hosted auth: `Authorization: Bearer <SOCIALDATAX_API_KEY>`
 - Default client transport: hosted `streamable-http`
-- Command/stdio fallback: `npx -y mcp-remote https://mcp.52choujiang.com/douyin/mcp --header "Authorization: Bearer <SOCIALDATAX_API_KEY>"`
+- Command/stdio fallback: `npx -y mcp-remote https://mcp.socialdatax.com/douyin/mcp --header "Authorization: Bearer <SOCIALDATAX_API_KEY>"`
 - License: MIT for the public documentation and examples only
 
 ## Safety Checks
 
-- No real API keys are present.
+- No real API Key values are present.
 - No private backend implementation is included.
 - No production configuration is included.
 - No internal samples are included.
@@ -46,14 +46,14 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 
 ## Directory Checks
 
-- Hosted streamable HTTP clients can connect directly to `https://mcp.52choujiang.com/douyin/mcp` with `Authorization: Bearer <SOCIALDATAX_API_KEY>`.
+- Hosted streamable HTTP clients can connect directly to `https://mcp.socialdatax.com/douyin/mcp` with `Authorization: Bearer <SOCIALDATAX_API_KEY>`.
 - With a valid key, hosted MCP `initialize` succeeds.
 - With a valid key, hosted MCP `tools/list` returns the current 16 public tools.
 - `douyin_submit_video_speech_text_by_video_url`, `douyin_submit_video_speech_text_by_aweme_id`, and `douyin_get_video_speech_text_job` are present in `tools/list`; if any are missing, deploy the latest service before publishing.
 - `examples/codex_config.toml` uses remote HTTP URL and `bearer_token_env_var`, not `mcp-remote`.
 - `examples/cursor_mcp.json` uses remote HTTP URL and `headers` with `${env:SOCIALDATAX_API_KEY}`, not `mcp-remote`.
 - `mcp.json` is explicitly command/stdio fallback and uses `mcp-remote`.
-- Before submitting to Smithery, verify `https://mcp.52choujiang.com/douyin/.well-known/mcp/server-card.json` returns the Douyin server card, not the root XHS server card.
+- Before submitting to Smithery, verify `https://mcp.socialdatax.com/douyin/.well-known/mcp/server-card.json` returns the Douyin server card, not the root XHS server card.
 
 ## Directory Submission Order
 

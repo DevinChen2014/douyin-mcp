@@ -4,12 +4,12 @@ This directory contains an OpenClaw native plugin shim for the hosted 抖音 MCP
 
 The plugin registers namespaced OpenClaw tools and forwards each call to a remote, read-only `streamable-http` MCP endpoint:
 
-- Endpoint: `https://mcp.52choujiang.com/douyin/mcp`
+- Endpoint: `https://mcp.socialdatax.com/douyin/mcp`
 - API key environment variable: `SOCIALDATAX_API_KEY`
 - Product: `SocialDataX` / `社媒数据助手`
-- Website: <https://socialdatax.52choujiang.com>
+- Website: <https://socialdatax.com>
 - Package name: `douyin-insights-openclaw-plugin`
-- Version: `0.2.7`
+- Version: `0.2.8`
 - Search terms: Douyin, 抖音, social media research, Douyin content insights, hot search, video and image/text works, creator analytics, comments, comment replies, creator profiles, creator short-drama series
 
 ## Capabilities
@@ -51,7 +51,7 @@ The key is sent as:
 Authorization: Bearer ${SOCIALDATAX_API_KEY}
 ```
 
-The plugin sends the key only to the fixed endpoint `https://mcp.52choujiang.com/douyin/mcp`. It does not support overriding the endpoint URL.
+The plugin sends the key only to the fixed endpoint `https://mcp.socialdatax.com/douyin/mcp`. It does not support overriding the endpoint URL.
 
 Do not commit real API keys to code, docs, issues, or screenshots.
 
@@ -74,7 +74,7 @@ clawhub package publish <public-checkout>/douyin-insights-openclaw \
   --family code-plugin \
   --name douyin-insights-openclaw-plugin \
   --display-name "社媒数据助手 抖音 MCP | Douyin MCP" \
-  --version 0.2.7 \
+  --version 0.2.8 \
   --source-repo <public-owner/public-repo> \
   --source-commit <public-commit-sha> \
   --source-path douyin-insights-openclaw \

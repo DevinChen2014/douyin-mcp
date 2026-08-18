@@ -29,7 +29,7 @@ Common search phrases for this MCP service:
 
 ## Service
 
-- Hosted MCP endpoint: `https://mcp.52choujiang.com/douyin/mcp`
+- Hosted MCP endpoint: `https://mcp.socialdatax.com/douyin/mcp`
 - Hosted transport: `streamable-http`
 - Authentication: `Authorization: Bearer <SOCIALDATAX_API_KEY>`
 - Product: `SocialDataX` / `社媒数据助手`
@@ -57,7 +57,7 @@ Supported workflows include:
 - Read creator profile data from a profile link, short link, share text, or `sec_user_id`.
 - Fetch creator work lists from a profile link, short link, share text, or `sec_user_id`.
 - Fetch creator short-drama / series lists from a profile link, short link, share text, or `sec_user_id`.
-- Submit a work video speech-to-text transcript task; submit tools 提交完成后最多短等 15 秒, and unfinished jobs can be polled by `job_id`.
+- Submit a work video speech-to-text transcript task; submit tools 提交完成后最多短等 240 秒, and unfinished jobs should continue polling the same `job_id` until terminal.
 
 ## Tools
 
@@ -76,9 +76,9 @@ Supported workflows include:
 | `douyin_get_user_posted_videos_by_profile_url` | Fetch a paginated list of works published by a creator from a profile link, short link, or share text. |
 | `douyin_get_user_series_by_sec_user_id` | Fetch creator short-drama / series lists when the caller already has a `sec_user_id`. |
 | `douyin_get_user_series_by_profile_url` | Fetch creator short-drama / series lists from a profile link, short link, or share text. |
-| `douyin_submit_video_speech_text_by_video_url` | Submit a work video speech-to-text transcript task from a work page link, short link, or share text. 提交完成后最多短等 15 秒. |
-| `douyin_submit_video_speech_text_by_aweme_id` | Submit a work video speech-to-text transcript task from an `aweme_id`. 提交完成后最多短等 15 秒. |
-| `douyin_get_video_speech_text_job` | Check a work video speech-to-text transcript job by `job_id` without creating a new task. This v1 surface returns transcript only, not summary. |
+| `douyin_submit_video_speech_text_by_video_url` | Submit a work video speech-to-text transcript task from a work page link, short link, or share text. 提交完成后最多短等 240 秒；未完成时继续查询同一个 `job_id` 直到终态. |
+| `douyin_submit_video_speech_text_by_aweme_id` | Submit a work video speech-to-text transcript task from an `aweme_id`. 提交完成后最多短等 240 秒；未完成时继续查询同一个 `job_id` 直到终态. |
+| `douyin_get_video_speech_text_job` | Check a work video speech-to-text transcript job by `job_id` without creating a new task; each call waits up to 240 seconds. If unfinished, continue querying the same `job_id` until terminal. This v1 surface returns transcript plus content context, not summary. |
 
 ## Quick Start
 
@@ -89,7 +89,7 @@ For clients that support authenticated `streamable-http`, use the hosted endpoin
   "mcpServers": {
     "socialdatax-douyin": {
       "type": "streamable_http",
-      "url": "https://mcp.52choujiang.com/douyin/mcp",
+      "url": "https://mcp.socialdatax.com/douyin/mcp",
       "headers": {
         "Authorization": "Bearer <SOCIALDATAX_API_KEY>"
       }
@@ -110,7 +110,7 @@ For command/stdio-only MCP clients, use `mcp-remote`:
       "args": [
         "-y",
         "mcp-remote",
-        "https://mcp.52choujiang.com/douyin/mcp",
+        "https://mcp.socialdatax.com/douyin/mcp",
         "--header",
         "Authorization: Bearer <SOCIALDATAX_API_KEY>"
       ]
@@ -122,7 +122,7 @@ For command/stdio-only MCP clients, use `mcp-remote`:
 Claude Code can use remote HTTP directly:
 
 ```bash
-claude mcp add --transport http socialdatax-douyin https://mcp.52choujiang.com/douyin/mcp --header 'Authorization: Bearer ${SOCIALDATAX_API_KEY}'
+claude mcp add --transport http socialdatax-douyin https://mcp.socialdatax.com/douyin/mcp --header 'Authorization: Bearer ${SOCIALDATAX_API_KEY}'
 ```
 
 Persist `SOCIALDATAX_API_KEY` in the runtime environment or client Secret before restarting Claude Code.
@@ -145,7 +145,7 @@ Request or manage API access from the product website:
 
 <https://socialdatax.com>
 
-Use the key as a Bearer token in the `Authorization` request header. Do not commit real API keys to code, docs, issues, or screenshots.
+Use the key as a Bearer token in the `Authorization` request header. Do not commit real API Key values to code, docs, issues, or screenshots.
 
 ## Directory Metadata
 

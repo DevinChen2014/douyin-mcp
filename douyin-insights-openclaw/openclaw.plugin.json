@@ -2,7 +2,7 @@
   "id": "douyin-insights-openclaw-plugin",
   "name": "社媒数据助手 抖音 MCP | Douyin MCP",
   "description": "SocialDataX / 社媒数据助手 为抖音 / Douyin 提供社媒研究支持：热榜、作品搜索、作品详情、评论回复、达人信息、达人作品和短剧/合集。",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "providers": ["douyin-insights"],
   "providerAuthEnvVars": {
     "douyin-insights": ["SOCIALDATAX_API_KEY"]
@@ -32,7 +32,7 @@
     "bins": ["node"],
     "env": ["SOCIALDATAX_API_KEY"],
     "primaryEnv": "SOCIALDATAX_API_KEY",
-    "networkTargets": ["https://mcp.52choujiang.com"]
+    "networkTargets": ["https://mcp.socialdatax.com"]
   },
   "metadata": {
     "douyin-insights": {
@@ -41,7 +41,7 @@
         "env": ["SOCIALDATAX_API_KEY"]
       },
       "primaryEnv": "SOCIALDATAX_API_KEY",
-      "networkTargets": ["https://mcp.52choujiang.com"]
+      "networkTargets": ["https://mcp.socialdatax.com"]
     }
   },
   "requires": {
@@ -49,12 +49,12 @@
     "env": ["SOCIALDATAX_API_KEY"]
   },
   "primaryEnv": "SOCIALDATAX_API_KEY",
-  "networkTargets": ["https://mcp.52choujiang.com"],
+  "networkTargets": ["https://mcp.socialdatax.com"],
   "environment": {
     "binaries": ["node"],
     "externalServices": [
       {
-        "name": "mcp.52choujiang.com"
+        "name": "mcp.socialdatax.com"
       }
     ]
   },
