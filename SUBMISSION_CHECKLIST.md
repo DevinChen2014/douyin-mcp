@@ -48,7 +48,9 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 
 - Hosted streamable HTTP clients can connect directly to `https://mcp.socialdatax.com/douyin/mcp` with `Authorization: Bearer <SOCIALDATAX_API_KEY>`.
 - With a valid key, hosted MCP `initialize` succeeds.
-- With a valid key, hosted MCP `tools/list` returns the current 16 public tools.
+- With a valid key, hosted MCP `tools/list` returns the current 19 public tools.
+- `socialdatax_get_points_balance` is present in `tools/list`.
+- `douyin_search_users` is present in `tools/list`.
 - `douyin_submit_video_speech_text_by_video_url`, `douyin_submit_video_speech_text_by_aweme_id`, and `douyin_get_video_speech_text_job` are present in `tools/list`; if any are missing, deploy the latest service before publishing.
 - `examples/codex_config.toml` uses remote HTTP URL and `bearer_token_env_var`, not `mcp-remote`.
 - `examples/cursor_mcp.json` uses remote HTTP URL and `headers` with `${env:SOCIALDATAX_API_KEY}`, not `mcp-remote`.

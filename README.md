@@ -36,7 +36,7 @@ Common search phrases for this MCP service:
 - Website: <https://socialdatax.com>
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
-- Current public capability version: `0.2.4`
+- Current public capability version: `0.2.5`
 
 ## Platform MCP
 
@@ -48,8 +48,10 @@ This MCP service is designed for social media content intelligence workflows. It
 
 Supported workflows include:
 
+- Query the current API Key account's SocialDataX points balance.
 - Read the Douyin / 抖音 hot search list.
 - Search Douyin works by keyword with optional paging and filters.
+- Search Douyin creators/accounts by keyword with optional paging and filters.
 - Resolve a Douyin content page link, short link, or share text into structured work details.
 - Read work details when the caller already has an `aweme_id`.
 - Fetch paginated first-level comments for comment analysis.
@@ -63,14 +65,17 @@ Supported workflows include:
 
 | Tool | Public purpose |
 | --- | --- |
+| `socialdatax_get_points_balance` | Query the current API Key account's SocialDataX points balance. |
 | `douyin_get_hot_search_list` | Get the current Douyin / 抖音 main hot search list. |
-| `douyin_search_videos` | Search Douyin works by keyword with optional paging and filters. |
+| `douyin_search_videos` | Search Douyin works by search term. Use this tool when the user needs works found by a search term; when a work link or `aweme_id` is already available, use the corresponding detail, comment, or speech-to-text tool. Supports `page_token` continuation. |
+| `douyin_search_users` | Search Douyin users, accounts, creators, or influencers by search term. Use this tool when the user needs users found by a search term; when `sec_user_id` or a profile link is already available, use the corresponding profile or creator-list tool. Do not use it to search works. Supports `page_token` continuation. |
 | `douyin_get_video_detail_by_aweme_id` | Fetch structured work details when the caller already has an `aweme_id`. |
 | `douyin_get_video_detail_by_url` | Resolve a Douyin content page link, short link, or share text into structured work details. |
 | `douyin_get_video_comments_by_aweme_id` | Fetch paginated first-level comments when the caller already has an `aweme_id`. |
 | `douyin_get_video_comments_by_url` | Fetch paginated first-level comments directly from a Douyin content page link, short link, or share text. |
 | `douyin_get_video_comment_replies_by_comment_id` | Fetch paginated replies under a first-level comment; pass both `aweme_id` and `comment_id`, and use `page_token` to continue pagination. |
 | `douyin_get_user_info_by_sec_user_id` | Fetch creator profile data when the caller already has a `sec_user_id`. |
+| `douyin_get_user_info_by_douyin_id` | Fetch creator profile data when the caller has the public Douyin account ID / `douyin_id`. |
 | `douyin_get_user_info_by_profile_url` | Resolve a Douyin profile link, short link, or share text into creator profile data. |
 | `douyin_get_user_posted_videos_by_sec_user_id` | Fetch a paginated list of works published by a creator when the caller already has a `sec_user_id`. |
 | `douyin_get_user_posted_videos_by_profile_url` | Fetch a paginated list of works published by a creator from a profile link, short link, or share text. |
@@ -78,7 +83,7 @@ Supported workflows include:
 | `douyin_get_user_series_by_profile_url` | Fetch creator short-drama / series lists from a profile link, short link, or share text. |
 | `douyin_submit_video_speech_text_by_video_url` | Submit a work video speech-to-text transcript task from a work page link, short link, or share text. 提交完成后最多短等 240 秒；未完成时继续查询同一个 `job_id` 直到终态. |
 | `douyin_submit_video_speech_text_by_aweme_id` | Submit a work video speech-to-text transcript task from an `aweme_id`. 提交完成后最多短等 240 秒；未完成时继续查询同一个 `job_id` 直到终态. |
-| `douyin_get_video_speech_text_job` | Check a work video speech-to-text transcript job by `job_id` without creating a new task; each call waits up to 240 seconds. If unfinished, continue querying the same `job_id` until terminal. This v1 surface returns transcript plus content context, not summary. |
+| `douyin_get_video_speech_text_job` | Check a work video speech-to-text transcript job by the `job_id` returned from a submit tool without creating a new task; do not pass `aweme_id` or a work link. Each call waits up to 240 seconds. If unfinished, continue querying the same `job_id` until terminal. This v1 surface returns transcript plus content context, not summary. |
 
 ## Quick Start
 
