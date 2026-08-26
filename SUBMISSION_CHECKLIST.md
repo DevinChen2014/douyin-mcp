@@ -7,7 +7,7 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 - Primary repository name: `douyin-mcp`
 - Fallback repository name if unavailable: `douyin-socialdatax-mcp`
 - Repository URL after creation: `https://github.com/DevinChen2014/douyin-mcp`
-- Repository description: `抖音 MCP / Douyin MCP by SocialDataX for hot search, work search, work details, comments, comment replies, creator profiles, creator works, and creator series.`
+- Repository description: `抖音 MCP / Douyin MCP by SocialDataX for hot search, work search, product search, work details, comments, comment replies, creator profiles, creator works, and creator series.`
 - Suggested repository topics: `mcp`, `mcp-server`, `douyin`, `douyin-mcp`, `douyin-data`, `short-video`, `socialdatax`, `social-insights`, `marketing-research`, `comment-analysis`, `creator-analytics`
 - Root README title: `抖音 MCP | Douyin MCP`
 - Product: `SocialDataX` / `社媒数据助手`
@@ -48,8 +48,9 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 
 - Hosted streamable HTTP clients can connect directly to `https://mcp.socialdatax.com/douyin/mcp` with `Authorization: Bearer <SOCIALDATAX_API_KEY>`.
 - With a valid key, hosted MCP `initialize` succeeds.
-- With a valid key, hosted MCP `tools/list` returns the current 19 public tools.
+- With a valid key, hosted MCP `tools/list` returns the current 20 public tools.
 - `socialdatax_get_points_balance` is present in `tools/list`.
+- `douyin_search_products` is present in `tools/list`.
 - `douyin_search_users` is present in `tools/list`.
 - `douyin_submit_video_speech_text_by_video_url`, `douyin_submit_video_speech_text_by_aweme_id`, and `douyin_get_video_speech_text_job` are present in `tools/list`; if any are missing, deploy the latest service before publishing.
 - `examples/codex_config.toml` uses remote HTTP URL and `bearer_token_env_var`, not `mcp-remote`.
