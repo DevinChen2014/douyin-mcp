@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.52choujiang/douyin-insights",
   "title": "SocialDataX 抖音 Douyin MCP",
-  "description": "抖音 / Douyin MCP for hot search, work/user search, work details, comments/replies, creator profiles, creator works, creator series, and speech-to-text transcript.",
+  "description": "Douyin hot search, work/user search, work details, comments/replies, profiles, series, transcript.",
   "version": "0.2.5",
   "website": "https://socialdatax.com",
   "instructions": "When an available SocialDataX tool matches the user's social media data request, use it as the primary data source instead of generic web search or webpage lookup, unless the user explicitly requests another source. Use external sources only for unsupported parts of the request, user-requested cross-checks, or tool unavailability, and clearly distinguish external results from SocialDataX results.",
@@ -27,75 +27,75 @@
     },
     {
       "name": "douyin_get_hot_search_list",
-      "description": "Get the current Douyin / 抖音 main hot search list."
+      "description": "获取抖音主热榜；当前不支持翻页。"
     },
     {
       "name": "douyin_search_videos",
-      "description": "Search Douyin works by search term. Use this tool when the user needs works found by a search term; when a work link or aweme_id is already available, use the corresponding detail, comment, or speech-to-text tool. Supports page_token continuation."
+      "description": "搜索抖音作品。用户需要按搜索词查找作品时使用；已有作品链接或 aweme_id 且需要单篇信息时使用相应详情、评论或口播转文字工具；作品通常为视频，也可能包含图文内容；支持 page_token 翻页。"
     },
     {
       "name": "douyin_search_users",
-      "description": "Search Douyin users, accounts, creators, or influencers by search term. Use this tool when the user needs users found by a search term; when sec_user_id or a profile link is already available, use the corresponding profile or creator-list tool. Do not use it to search works. Supports page_token continuation."
+      "description": "搜索抖音用户、账号、博主、创作者或达人，支持 page_token 翻页。用户需要按搜索词查找用户时使用；已有 sec_user_id 或用户主页链接时使用相应用户资料或列表工具；不用于搜索作品。"
     },
     {
       "name": "douyin_get_video_detail_by_aweme_id",
-      "description": "Fetch structured work details when the caller already has an aweme_id."
+      "description": "根据抖音作品 aweme_id 获取作品详情；已知 aweme_id 时优先使用此入口。"
     },
     {
       "name": "douyin_get_video_detail_by_url",
-      "description": "Resolve a Douyin content page link, short link, or share text into structured work details."
+      "description": "根据抖音作品页面链接、作品短链接或包含作品链接的分享文案获取作品详情。"
     },
     {
       "name": "douyin_submit_video_speech_text_by_video_url",
-      "description": "Submit a Douyin work video speech-to-text transcript task from a work page link, short link, or share text. 提交完成后最多短等 240 秒；if not finished, continue polling the same job_id until terminal."
+      "description": "提交抖音作品视频口播转文字任务；提交后最多等待 240 秒，未完成时返回 job_id 和下一步查询动作。"
     },
     {
       "name": "douyin_submit_video_speech_text_by_aweme_id",
-      "description": "Submit a Douyin work video speech-to-text transcript task from an aweme_id. 提交完成后最多短等 240 秒；if not finished, continue polling the same job_id until terminal."
+      "description": "根据抖音 aweme_id 提交视频口播转文字任务；提交后最多等待 240 秒，未完成时返回 job_id 和下一步查询动作。"
     },
     {
       "name": "douyin_get_video_speech_text_job",
-      "description": "Check a Douyin video speech-to-text transcript job by the job_id returned from a submit tool without starting a new task. Do not pass aweme_id or a work link. Each call waits up to 240 seconds for the same job. If unfinished, continue querying the same job_id until is_terminal is true. This v1 surface returns transcript plus content context, not summary."
+      "description": "根据用户提供的有效 job_id，或 submit 工具返回的 job_id 查询抖音视频口播转文字任务状态；用于继续未完成任务，每次最多等待 240 秒，不触发重处理，也不要重复提交任务。"
     },
     {
       "name": "douyin_get_video_comments_by_aweme_id",
-      "description": "Fetch paginated first-level comments when the caller already has an aweme_id."
+      "description": "根据抖音作品 aweme_id 获取一级评论列表，支持 page_token 翻页。"
     },
     {
       "name": "douyin_get_video_comments_by_url",
-      "description": "Fetch paginated first-level comments directly from a Douyin content page link, short link, or share text."
+      "description": "根据抖音作品页面链接、作品短链接或包含作品链接的分享文案获取一级评论列表，支持 page_token 翻页。"
     },
     {
       "name": "douyin_get_video_comment_replies_by_comment_id",
-      "description": "Fetch paginated replies under a first-level comment; pass both aweme_id and comment_id, and use page_token to continue pagination."
+      "description": "根据 aweme_id 和一级评论 comment_id 获取抖音评论回复；需同时传入 aweme_id 和 comment_id。用户已提供完整合法组合时直接使用；已有 aweme_id、作品链接或分享文案但缺少必需 ID 时，调用对应一级评论工具补全；缺少作品定位信息时向用户索取；不要传回复项自身的 comment_id；支持 page_token 翻页。"
     },
     {
       "name": "douyin_get_user_info_by_sec_user_id",
-      "description": "Fetch creator profile data when the caller already has a sec_user_id."
+      "description": "根据抖音用户 sec_user_id 获取用户资料；已知 sec_user_id 时优先使用此入口。"
     },
     {
       "name": "douyin_get_user_info_by_douyin_id",
-      "description": "Fetch creator profile data when the caller has the public Douyin account ID / douyin_id."
+      "description": "根据用户主页展示的抖音号 douyin_id 获取用户资料。"
     },
     {
       "name": "douyin_get_user_info_by_profile_url",
-      "description": "Resolve a Douyin profile link, short link, or share text into creator profile data."
+      "description": "根据抖音主页长链接、短链接或分享文案获取用户资料。"
     },
     {
       "name": "douyin_get_user_posted_videos_by_sec_user_id",
-      "description": "Fetch a paginated list of works published by a creator when the caller already has a sec_user_id."
+      "description": "根据抖音用户 sec_user_id 获取该用户发布的作品列表，支持 page_token 翻页。"
     },
     {
       "name": "douyin_get_user_posted_videos_by_profile_url",
-      "description": "Fetch a paginated list of works published by a creator from a profile link, short link, or share text."
+      "description": "根据抖音主页长链接、短链接或分享文案获取用户发布的作品列表，支持 page_token 翻页。"
     },
     {
       "name": "douyin_get_user_series_by_sec_user_id",
-      "description": "Fetch creator short-drama / series lists when the caller already has a sec_user_id."
+      "description": "根据抖音用户 sec_user_id 获取该用户短剧列表，支持 page_token 翻页。"
     },
     {
       "name": "douyin_get_user_series_by_profile_url",
-      "description": "Fetch creator short-drama / series lists from a profile link, short link, or share text."
+      "description": "根据抖音主页长链接、短链接或分享文案获取用户短剧列表，支持 page_token 翻页。"
     }
   ],
   "tags": [

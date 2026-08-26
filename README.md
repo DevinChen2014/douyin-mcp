@@ -55,11 +55,11 @@ Supported workflows include:
 - Resolve a Douyin content page link, short link, or share text into structured work details.
 - Read work details when the caller already has an `aweme_id`.
 - Fetch paginated first-level comments for comment analysis.
-- Fetch paginated replies under a first-level comment; pass both `aweme_id` and `comment_id`, and use `page_token` to continue pagination.
+- Fetch paginated replies under a first-level comment. If the user supplies a complete, valid `aweme_id` and first-level `comment_id` pair, use it directly. If an `aweme_id`, work link or share text is available but a required ID is missing, fetch first-level comments first; without a work locator, ask the user. Do not use a reply item's own `comment_id` as the first-level `comment_id`; both `aweme_id` and `comment_id` are required. Use `page_token` to continue pagination.
 - Read creator profile data from a profile link, short link, share text, or `sec_user_id`.
 - Fetch creator work lists from a profile link, short link, share text, or `sec_user_id`.
 - Fetch creator short-drama / series lists from a profile link, short link, share text, or `sec_user_id`.
-- Submit a work video speech-to-text transcript task; submit tools 提交完成后最多短等 240 秒, and unfinished jobs should continue polling the same `job_id` until terminal.
+- Submit a work video speech-to-text transcript task; the submit call may wait up to 240 seconds, and unfinished jobs should continue polling the same `job_id` until terminal.
 
 ## Tools
 
@@ -73,7 +73,7 @@ Supported workflows include:
 | `douyin_get_video_detail_by_url` | Resolve a Douyin content page link, short link, or share text into structured work details. |
 | `douyin_get_video_comments_by_aweme_id` | Fetch paginated first-level comments when the caller already has an `aweme_id`. |
 | `douyin_get_video_comments_by_url` | Fetch paginated first-level comments directly from a Douyin content page link, short link, or share text. |
-| `douyin_get_video_comment_replies_by_comment_id` | Fetch paginated replies under a first-level comment; pass both `aweme_id` and `comment_id`, and use `page_token` to continue pagination. |
+| `douyin_get_video_comment_replies_by_comment_id` | Fetch paginated replies under a first-level comment. If the user supplies a complete, valid `aweme_id` and first-level `comment_id` pair, use it directly. If an `aweme_id`, work link or share text is available but a required ID is missing, fetch first-level comments first; without a work locator, ask the user. Do not use a reply item's own `comment_id` as the first-level `comment_id`; both `aweme_id` and `comment_id` are required. Use `page_token` to continue pagination. |
 | `douyin_get_user_info_by_sec_user_id` | Fetch creator profile data when the caller already has a `sec_user_id`. |
 | `douyin_get_user_info_by_douyin_id` | Fetch creator profile data when the caller has the public Douyin account ID / `douyin_id`. |
 | `douyin_get_user_info_by_profile_url` | Resolve a Douyin profile link, short link, or share text into creator profile data. |
@@ -81,9 +81,9 @@ Supported workflows include:
 | `douyin_get_user_posted_videos_by_profile_url` | Fetch a paginated list of works published by a creator from a profile link, short link, or share text. |
 | `douyin_get_user_series_by_sec_user_id` | Fetch creator short-drama / series lists when the caller already has a `sec_user_id`. |
 | `douyin_get_user_series_by_profile_url` | Fetch creator short-drama / series lists from a profile link, short link, or share text. |
-| `douyin_submit_video_speech_text_by_video_url` | Submit a work video speech-to-text transcript task from a work page link, short link, or share text. 提交完成后最多短等 240 秒；未完成时继续查询同一个 `job_id` 直到终态. |
-| `douyin_submit_video_speech_text_by_aweme_id` | Submit a work video speech-to-text transcript task from an `aweme_id`. 提交完成后最多短等 240 秒；未完成时继续查询同一个 `job_id` 直到终态. |
-| `douyin_get_video_speech_text_job` | Check a work video speech-to-text transcript job by the `job_id` returned from a submit tool without creating a new task; do not pass `aweme_id` or a work link. Each call waits up to 240 seconds. If unfinished, continue querying the same `job_id` until terminal. This v1 surface returns transcript plus content context, not summary. |
+| `douyin_submit_video_speech_text_by_video_url` | Submit a work video speech-to-text transcript task from a work page link, short link, or share text. The submit call may wait up to 240 seconds; if unfinished, continue polling the same `job_id` until terminal. |
+| `douyin_submit_video_speech_text_by_aweme_id` | Submit a work video speech-to-text transcript task from an `aweme_id`. The submit call may wait up to 240 seconds; if unfinished, continue polling the same `job_id` until terminal. |
+| `douyin_get_video_speech_text_job` | Check a work video speech-to-text transcript job using a valid `job_id` supplied by the user, or a `job_id` returned by a submit tool, without creating a new task; do not pass `aweme_id` or a work link. Each call waits up to 240 seconds. If unfinished, continue querying the same `job_id` until terminal. This v1 surface returns transcript plus content context, not summary. |
 
 ## Quick Start
 
