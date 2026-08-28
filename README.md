@@ -139,8 +139,11 @@ For command/stdio-only MCP clients, use `mcp-remote`:
         "mcp-remote",
         "https://mcp.socialdatax.com/douyin/mcp",
         "--header",
-        "Authorization: Bearer <SOCIALDATAX_API_KEY>"
-      ]
+        "Authorization: Bearer ${SOCIALDATAX_API_KEY}"
+      ],
+      "env": {
+        "SOCIALDATAX_API_KEY": "<SOCIALDATAX_API_KEY>"
+      }
     }
   }
 }
