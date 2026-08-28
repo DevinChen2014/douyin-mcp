@@ -21,7 +21,7 @@ const apiKey = process.env.SOCIALDATAX_API_KEY?.trim();
 const args = [upstreamUrl, "--transport", "http-only", "--silent"];
 
 if (apiKey) {
-  args.push("--header", `Authorization:Bearer ${apiKey}`);
+  args.push("--header", 'Authorization: Bearer ${SOCIALDATAX_API_KEY}');
 }
 
 const child = spawn(process.execPath, [remoteEntry, ...args], {
