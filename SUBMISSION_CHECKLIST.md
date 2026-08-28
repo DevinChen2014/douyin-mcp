@@ -1,6 +1,6 @@
 # MCP Directory Submission Checklist
 
-Use this checklist before syncing this listing to the public Douyin MCP repository, submitting it to MCP directories, or updating a directory entry.
+Use this checklist before syncing this listing to the public Douyin MCP repository, submitting it to MCP directories, or updating a directory entry. The hosted production `tools/list`, server card, and public GitHub repository are synchronized at capability version `0.2.6` with all 20 tracked tools. The npm stdio bridge is published as `douyin-mcp@0.2.12` and connects to the same hosted surface. The official Registry latest remains `0.2.5` pending publication of `0.2.6`.
 
 ## Public Repository
 
