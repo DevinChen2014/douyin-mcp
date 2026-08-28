@@ -1,0 +1,41 @@
+{
+  "name": "douyin-mcp",
+  "version": "0.2.6",
+  "description": "Local stdio bridge for the hosted SocialDataX Douyin MCP service.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "douyin-mcp": "bridge.mjs"
+  },
+  "files": [
+    "bridge.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node ./bridge.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "douyin",
+    "douyin-mcp",
+    "socialdatax",
+    "social-insights",
+    "social-media-analytics"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevinChen2014/douyin-mcp.git"
+  },
+  "homepage": "https://socialdatax.com",
+  "bugs": {
+    "url": "https://github.com/DevinChen2014/douyin-mcp/issues"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "dependencies": {
+    "mcp-remote": "0.8.1"
+  }
+}
