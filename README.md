@@ -70,7 +70,7 @@ This MCP service is designed for social media content intelligence workflows. It
 
 Supported workflows include:
 
-- Query the current API Key account's SocialDataX points balance.
+- Query the current API Key account's SocialDataX points balance / 积分余额、剩余积分或点数.
 - Read the Douyin / 抖音 hot search list.
 - Search Douyin works by keyword with optional paging and filters.
 - Search products in Douyin global search with optional paging and stable filters; results include normalized product and SKU data.
@@ -88,13 +88,13 @@ Supported workflows include:
 
 | Tool | Public purpose |
 | --- | --- |
-| `socialdatax_get_points_balance` | Query the current API Key account's SocialDataX points balance. |
+| `socialdatax_get_points_balance` | Query the current API Key account's SocialDataX points balance / 积分余额、剩余积分或点数. |
 | `douyin_get_hot_search_list` | Get the current Douyin / 抖音 main hot search list. |
-| `douyin_search_videos` | Search Douyin works by search term. Use this tool when the user needs works found by a search term; when a work link or `aweme_id` is already available, use the corresponding detail, comment, or speech-to-text tool. Supports `page_token` continuation. |
+| `douyin_search_videos` | Search Douyin video and image/text works by search term. Use this tool when the user needs works found by a search term; when a work link or `aweme_id` is already available, use the corresponding detail, comment, or speech-to-text tool. Supports `page_token` continuation. |
 | `douyin_search_products` | Search products in Douyin global search with sorting, price, service, and selling-point filters. Do not pass product URLs, `product_id`, `sku_id`, or `page_token` as the search term. Returns normalized product and SKU data and supports opaque `page_token` continuation; it does not represent the full in-mall-channel search flow. |
 | `douyin_search_users` | Search Douyin users, accounts, creators, or influencers by search term. Use this tool when the user needs users found by a search term; when `sec_user_id` or a profile link is already available, use the corresponding profile or creator-list tool. Do not use it to search works. Supports `page_token` continuation. |
-| `douyin_get_video_detail_by_aweme_id` | Fetch structured work details when the caller already has an `aweme_id`. |
-| `douyin_get_video_detail_by_url` | Resolve a Douyin content page link, short link, or share text into structured work details. |
+| `douyin_get_video_detail_by_aweme_id` | Fetch structured video or image/text work details when the caller already has an `aweme_id`. |
+| `douyin_get_video_detail_by_url` | Resolve a Douyin content page link, short link, or share text into structured video or image/text work details. |
 | `douyin_get_video_comments_by_aweme_id` | Fetch paginated first-level comments when the caller already has an `aweme_id`. |
 | `douyin_get_video_comments_by_url` | Fetch paginated first-level comments directly from a Douyin content page link, short link, or share text. |
 | `douyin_get_video_comment_replies_by_comment_id` | Fetch paginated replies under a first-level comment. If the user supplies a complete, valid `aweme_id` and first-level `comment_id` pair, use it directly. If an `aweme_id`, work link or share text is available but a required ID is missing, fetch first-level comments first; without a work locator, ask the user. Do not use a reply item's own `comment_id` as the first-level `comment_id`; both `aweme_id` and `comment_id` are required. Use `page_token` to continue pagination. |
