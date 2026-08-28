@@ -125,7 +125,7 @@ For clients that support authenticated `streamable-http`, use the hosted endpoin
 }
 ```
 
-A ready-to-copy example is available in [`examples/streamable_http_config.json`](examples/streamable_http_config.json).
+A ready-to-copy example is available in [`examples/streamable_http_config.json`](https://github.com/DevinChen2014/douyin-mcp/blob/main/examples/streamable_http_config.json).
 
 For command/stdio-only MCP clients, use `mcp-remote`:
 
@@ -158,13 +158,13 @@ Claude Desktop should use its remote MCP / Connectors UI when available. If a lo
 
 ## Client Examples
 
-Configuration examples are available in [examples](examples/):
+Configuration examples are available in [examples](https://github.com/DevinChen2014/douyin-mcp/tree/main/examples):
 
-- [Command/stdio fallback config](mcp.json)
-- [Claude Desktop fallback config](examples/claude_desktop_config.json)
-- [Cursor remote HTTP config](examples/cursor_mcp.json)
-- [Codex remote HTTP config](examples/codex_config.toml)
-- [Direct streamable HTTP config](examples/streamable_http_config.json)
+- [Command/stdio fallback config](https://github.com/DevinChen2014/douyin-mcp/blob/main/mcp.json)
+- [Claude Desktop fallback config](https://github.com/DevinChen2014/douyin-mcp/blob/main/examples/claude_desktop_config.json)
+- [Cursor remote HTTP config](https://github.com/DevinChen2014/douyin-mcp/blob/main/examples/cursor_mcp.json)
+- [Codex remote HTTP config](https://github.com/DevinChen2014/douyin-mcp/blob/main/examples/codex_config.toml)
+- [Direct streamable HTTP config](https://github.com/DevinChen2014/douyin-mcp/blob/main/examples/streamable_http_config.json)
 
 ## API Key
 
@@ -178,10 +178,10 @@ Use the key as a Bearer token in the `Authorization` request header. Do not comm
 
 Public metadata files in this repository:
 
-- [server-card.json](server-card.json): directory-oriented metadata for the hosted service. Official MCP Registry publishing uses the private source repo's `registry/douyin/server.json` for the current `com.52choujiang/douyin-insights` entry.
-- [mcp.json](mcp.json): generic command/stdio fallback config using `mcp-remote`.
-- [glama.json](glama.json): Glama repository ownership metadata.
-- [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md): checklist for MCP directory submissions.
+- [server-card.json](https://github.com/DevinChen2014/douyin-mcp/blob/main/server-card.json): directory-oriented metadata for the hosted service. Official MCP Registry publishing uses the private source repo's `registry/douyin/server.json` for the current `com.52choujiang/douyin-insights` entry.
+- [mcp.json](https://github.com/DevinChen2014/douyin-mcp/blob/main/mcp.json): generic command/stdio fallback config using `mcp-remote`.
+- [glama.json](https://github.com/DevinChen2014/douyin-mcp/blob/main/glama.json): Glama repository ownership metadata.
+- [SUBMISSION_CHECKLIST.md](https://github.com/DevinChen2014/douyin-mcp/blob/main/SUBMISSION_CHECKLIST.md): checklist for MCP directory submissions.
 
 ## License
 
