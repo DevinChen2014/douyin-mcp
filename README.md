@@ -44,6 +44,8 @@ Use the hosted `streamable-http` endpoint directly from clients that support aut
 
 ## npm stdio bridge
 
+Requires Node.js 20.18.1 or later.
+
 Command/stdio-only MCP clients can install and start the bridge directly from npm:
 
 ```json
