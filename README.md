@@ -36,7 +36,7 @@ Common search phrases for this MCP service:
 - Website and API Key access: <https://socialdatax.com/ai?from=github>
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
-- Current public capability version: `0.2.7` with 24 tracked tools. Hosted production and the public GitHub repository are now both at `0.2.7` with 24 tools. The npm stdio bridge remains `douyin-mcp@0.2.12`. The official Registry latest remains `0.2.5` pending publication of `0.2.7`.
+- Current public capability version: `0.2.7` with 24 tracked tools. Hosted production, the official Registry, and the public GitHub repository are all at `0.2.7` with 24 tools. The npm stdio bridge remains `douyin-mcp@0.2.12`.
 
 ## Platform MCP
 

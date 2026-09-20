@@ -1,6 +1,6 @@
 # MCP Directory Submission Checklist
 
-Use this checklist before syncing this listing to the public Douyin MCP repository, submitting it to MCP directories, or updating a directory entry. Capability version `0.2.7` with 24 tracked tools is live in hosted production and the public GitHub repository. The npm stdio bridge remains `douyin-mcp@0.2.12`. The official Registry latest remains `0.2.5` pending publication of `0.2.7`.
+Use this checklist before syncing this listing to the public Douyin MCP repository, submitting it to MCP directories, or updating a directory entry. Capability version `0.2.7` with 24 tracked tools is live in hosted production, the official Registry, and the public GitHub repository. The npm stdio bridge remains `douyin-mcp@0.2.12`.
 
 ## Public Repository
 
