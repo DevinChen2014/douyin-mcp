@@ -36,7 +36,7 @@ Common search phrases for this MCP service:
 - Website and API Key access: <https://socialdatax.com/ai?from=github>
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
-- Current public capability version: `0.2.6`. The hosted production `tools/list`, server card, and public GitHub repository are synchronized at `0.2.6` with all 20 tracked tools. The npm stdio bridge is published as `douyin-mcp@0.2.12` and connects to the same hosted surface. The official Registry latest remains `0.2.5` pending publication of `0.2.6`.
+- Current public capability version: `0.2.7` with 24 tracked tools. Hosted production and the public GitHub repository are now both at `0.2.7` with 24 tools. The npm stdio bridge remains `douyin-mcp@0.2.12`. The official Registry latest remains `0.2.5` pending publication of `0.2.7`.
 
 ## Platform MCP
 
@@ -92,9 +92,13 @@ Supported workflows include:
 | `douyin_get_hot_search_list` | Get the current Douyin / 抖音 main hot search list. |
 | `douyin_search_videos` | Search Douyin video and image/text works by search term. Use this tool when the user needs works found by a search term; when a work link or `aweme_id` is already available, use the corresponding detail, comment, or speech-to-text tool. Supports `page_token` continuation. |
 | `douyin_search_products` | Search products in Douyin global search with sorting, price, service, and selling-point filters. Do not pass product URLs, `product_id`, `sku_id`, or `page_token` as the search term. Returns normalized product and SKU data and supports opaque `page_token` continuation; it does not represent the full in-mall-channel search flow. |
+| `douyin_get_product_detail_by_product_id` | Fetch structured price, shop, image, assurance, shipping, and specification details using a complete `product_id`. Use an ID supplied by the user directly; no prior search is required. If needed, obtain `product_id` from `douyin_search_products`; do not pass `sku_id`, product links, or search terms. |
+| `douyin_get_product_detail_by_url` | Fetch the same structured product details from a supported product short link, product page link, or share text. |
 | `douyin_search_users` | Search Douyin users, accounts, creators, or influencers by search term. Use this tool when the user needs users found by a search term; when `sec_user_id` or a profile link is already available, use the corresponding profile or creator-list tool. Do not use it to search works. Supports `page_token` continuation. |
 | `douyin_get_video_detail_by_aweme_id` | Fetch structured video or image/text work details when the caller already has an `aweme_id`. |
 | `douyin_get_video_detail_by_url` | Resolve a Douyin content page link, short link, or share text into structured video or image/text work details. |
+| `douyin_get_video_share_link_by_aweme_id` | Generate a work share short link and copyable share text by aweme_id. |
+| `douyin_get_video_share_link_by_url` | Generate a share short link and copyable share text from a work page link, short link, or share text. |
 | `douyin_get_video_comments_by_aweme_id` | Fetch paginated first-level comments when the caller already has an `aweme_id`. |
 | `douyin_get_video_comments_by_url` | Fetch paginated first-level comments directly from a Douyin content page link, short link, or share text. |
 | `douyin_get_video_comment_replies_by_comment_id` | Fetch paginated replies under a first-level comment. If the user supplies a complete, valid `aweme_id` and first-level `comment_id` pair, use it directly. If an `aweme_id`, work link or share text is available but a required ID is missing, fetch first-level comments first; without a work locator, ask the user. Do not use a reply item's own `comment_id` as the first-level `comment_id`; both `aweme_id` and `comment_id` are required. Use `page_token` to continue pagination. |
