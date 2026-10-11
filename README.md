@@ -10,6 +10,16 @@ If you are looking for a Douyin MCP or 抖音 MCP for social media research work
 
 The business implementation is privately hosted. This repository exposes only the public connection surface for social media content intelligence workflows.
 
+<!-- release-status:start -->
+## Recorded release status
+
+- Local metadata: `0.2.8` with 25 tracked tools. Local metadata alone does not establish publication.
+- Hosted production: `0.2.8` with 25 tools; recorded verification on `2026-10-11 19:32` (Asia/Shanghai).
+- Official MCP Registry: `0.2.8` (`active`); recorded verification on `2026-10-11 19:32` (Asia/Shanghai).
+- Registry evidence: [version-specific Registry record](https://registry.modelcontextprotocol.io/v0.1/servers/com.52choujiang%2Fdouyin-insights/versions/0.2.8).
+- These are recorded observations, not a fresh live check. Public GitHub, npm, and other distribution channels require their own verification.
+<!-- release-status:end -->
+
 ## Search Aliases
 
 Common search phrases for this MCP service:
@@ -36,7 +46,6 @@ Common search phrases for this MCP service:
 - Website and API Key access: <https://socialdatax.com/ai?from=github>
 - Registry name: `com.52choujiang/douyin-insights`
 - Future registry name: `com.socialdatax/douyin-insights`
-- Current public capability version: `0.2.7` with 24 tracked tools. Hosted production, the official Registry, and the public GitHub repository are all at `0.2.7` with 24 tools. The npm stdio bridge is `douyin-mcp@0.2.13`.
 
 ## Platform MCP
 
@@ -72,6 +81,7 @@ Supported workflows include:
 
 - Query the current API Key account's SocialDataX points balance / 积分余额、剩余积分或点数.
 - Read the Douyin / 抖音 hot search list.
+- Get ordinary Douyin search input suggestions by keyword; this does not search works, users, or products.
 - Search Douyin works by keyword with optional paging and filters.
 - Search products in Douyin global search with optional paging and stable filters; results include normalized product and SKU data.
 - Search Douyin creators/accounts by keyword with optional paging and filters.
@@ -90,6 +100,7 @@ Supported workflows include:
 | --- | --- |
 | `socialdatax_get_points_balance` | Query the current API Key account's SocialDataX points balance / 积分余额、剩余积分或点数. |
 | `douyin_get_hot_search_list` | Get the current Douyin / 抖音 main hot search list. |
+| `douyin_search_suggestions` | Get ordinary Douyin search input suggestions by keyword. Do not use it to search works, users, or products; do not pass links, IDs, or `page_token`. |
 | `douyin_search_videos` | Search Douyin video and image/text works by search term. Use this tool when the user needs works found by a search term; when a work link or `aweme_id` is already available, use the corresponding detail, comment, or speech-to-text tool. Supports `page_token` continuation. |
 | `douyin_search_products` | Search products in Douyin global search with sorting, price, service, and selling-point filters. Do not pass product URLs, `product_id`, `sku_id`, or `page_token` as the search term. Returns normalized product and SKU data and supports opaque `page_token` continuation; it does not represent the full in-mall-channel search flow. |
 | `douyin_get_product_detail_by_product_id` | Fetch structured price, shop, image, assurance, shipping, and specification details using a complete `product_id`. Use an ID supplied by the user directly; no prior search is required. If needed, obtain `product_id` from `douyin_search_products`; do not pass `sku_id`, product links, or search terms. |

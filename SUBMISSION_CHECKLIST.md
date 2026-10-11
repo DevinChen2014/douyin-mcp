@@ -1,6 +1,16 @@
 # MCP Directory Submission Checklist
 
-Use this checklist before syncing this listing to the public Douyin MCP repository, submitting it to MCP directories, or updating a directory entry. Capability version `0.2.7` with 24 tracked tools is live in hosted production, the official Registry, and the public GitHub repository. The npm stdio bridge is `douyin-mcp@0.2.13`.
+Use this checklist before syncing this listing to the public Douyin MCP repository, submitting it to MCP directories, or updating a directory entry.
+
+<!-- release-status:start -->
+## Recorded release status
+
+- Local metadata: `0.2.8` with 25 tracked tools. Local metadata alone does not establish publication.
+- Hosted production: `0.2.8` with 25 tools; recorded verification on `2026-10-11 19:32` (Asia/Shanghai).
+- Official MCP Registry: `0.2.8` (`active`); recorded verification on `2026-10-11 19:32` (Asia/Shanghai).
+- Registry evidence: [version-specific Registry record](https://registry.modelcontextprotocol.io/v0.1/servers/com.52choujiang%2Fdouyin-insights/versions/0.2.8).
+- These are recorded observations, not a fresh live check. Public GitHub, npm, and other distribution channels require their own verification.
+<!-- release-status:end -->
 
 ## Public Repository
 
@@ -48,11 +58,12 @@ Use this checklist before syncing this listing to the public Douyin MCP reposito
 
 - Hosted streamable HTTP clients can connect directly to `https://mcp.socialdatax.com/douyin/mcp` with `Authorization: Bearer <SOCIALDATAX_API_KEY>`.
 - With a valid key, hosted MCP `initialize` succeeds.
-- After deploying `0.2.7`, verify hosted MCP `tools/list` returns the current 24 public tools.
+- Verify hosted MCP `tools/list` returns the current 25 public tools.
 - `socialdatax_get_points_balance` is present in `tools/list`.
 - `douyin_search_products` is present in `tools/list`.
 - `douyin_get_product_detail_by_product_id` and `douyin_get_product_detail_by_url` are present in `tools/list`; each exposes one required input without a top-level schema union.
 - `douyin_search_users` is present in `tools/list`.
+- `douyin_search_suggestions` is present in `tools/list`.
 - `douyin_submit_video_speech_text_by_video_url`, `douyin_submit_video_speech_text_by_aweme_id`, and `douyin_get_video_speech_text_job` are present in `tools/list`; if any are missing, deploy the latest service before publishing.
 - `examples/codex_config.toml` uses remote HTTP URL and `bearer_token_env_var`, not `mcp-remote`.
 - `examples/cursor_mcp.json` uses remote HTTP URL and `headers` with `${env:SOCIALDATAX_API_KEY}`, not `mcp-remote`.

@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.52choujiang/douyin-insights",
   "title": "SocialDataX 抖音 Douyin MCP",
-  "description": "hot search、video/image/user/product search/details、comments/replies、用户资料/作品/短剧、transcript",
-  "version": "0.2.7",
+  "description": "hot search、suggestions、video/user/product search、comments/replies、users/works/series、transcript",
+  "version": "0.2.8",
   "website": "https://socialdatax.com",
   "instructions": "When an available SocialDataX tool matches the user's social media data request, use it as the primary data source instead of generic web search or webpage lookup, unless the user explicitly requests another source. Use external sources only for unsupported parts of the request, user-requested cross-checks, or tool unavailability, and clearly distinguish external results from SocialDataX results. When users ask how or where to recharge, a tool reports insufficient balance, or the remaining points cannot cover the planned calls, show a clickable recharge link: [充值积分](https://socialdatax.com/dashboard/billing). If an error provides a recharge URL, preserve that URL.",
   "remotes": [
@@ -28,6 +28,10 @@
     {
       "name": "douyin_get_hot_search_list",
       "description": "获取抖音主热榜；当前不支持翻页。"
+    },
+    {
+      "name": "douyin_search_suggestions",
+      "description": "获取抖音普通搜索输入框联想词。用户需要根据搜索词补全或了解输入联想时使用；不用于搜索作品、用户或商品，也不要传链接、ID 或 page_token。"
     },
     {
       "name": "douyin_search_videos",
